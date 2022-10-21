@@ -1,10 +1,10 @@
-Circuit: * C:\Users\Cristian\Desktop\ejemplos LTspice\ejemplo4.asc
+Circuit: * C:\Users\Cristian\Desktop\ejemplos_LTspice\ejemplo4.asc
 
 WARNING: Node V2 is floating.
 
 .OP point found by inspection.
 
-Date: Mon Oct 17 13:06:47 2022
+Date: Thu Oct 20 13:08:53 2022
 Total elapsed time: 0.033 seconds.
 
 tnom = 27
