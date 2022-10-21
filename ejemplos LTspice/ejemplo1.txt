@@ -1,0 +1,7 @@
+* C:\Users\Cristian\Desktop\ejemplos LTspice\ejemplo1.asc
+R1 V2 V1 10
+R2 V2 0 20k
+R3 V1 0 15
+.op
+.backanno
+.end
