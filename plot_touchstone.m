@@ -4,8 +4,19 @@
 function plot_touchstone(direction)
 
     S_50 = sparameters(direction);
-    rfplot(S_50)
-    
+    subplot(2,2,1)
+    rfplot(S_50,1,1)
+    title('S11')
+    subplot(2,2,2)
+    rfplot(S_50,1,2)
+    title('S12')
+    subplot(2,2,3)
+    rfplot(S_50,2,1)
+    title('S21')
+    subplot(2,2,4)
+    rfplot(S_50,2,2)
+    title('S22')
+
 end
 
 
