@@ -2,8 +2,9 @@
 % mandatory to save in format RI)
 
 function plot_touchstone(direction)
-
-    S_50 = sparameters(direction);
+    
+    S_50 = sparameters('1501_BRAVO_0dBm.s2p');
+    %S_50 = sparameters(direction);
     subplot(2,2,1)
     rfplot(S_50,1,1)
     title('S11')

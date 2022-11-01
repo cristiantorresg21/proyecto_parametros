@@ -1,0 +1,38 @@
+% this function plot the info for a touchstone file ( this information is
+% mandatory to save in format RI)
+
+function plot_touchstone_db(direction)
+    
+    %S_50 = sparameters('1501_BRAVO_0dBm.s2p');
+    S_50 = sparameters(direction);
+    size = S_50.NumPorts;
+    aux = 1;
+    for i = 1:size
+        
+        for j = 1:size
+
+            subplot(size,size,aux)
+            rfplot(S_50,i,j)
+            title('S11')
+            aux = aux + 1;
+
+        end    
+           
+    end
+    subplot(2,2,1)
+    rfplot(S_50,1,1)
+    title('S11')
+    subplot(2,2,2)
+    rfplot(S_50,1,2)
+    title('S12')
+    subplot(2,2,3)
+    rfplot(S_50,2,1)
+    title('S21')
+    subplot(2,2,4)
+    rfplot(S_50,2,2)
+    title('S22')
+
+end
+
+
+    
