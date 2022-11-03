@@ -115,5 +115,6 @@ end
 Ym=m_aux
 Zm=m_aux^-1
 
-[coordenadas,Y] = parallels(coordenadas,Y)
-mat_graf = mat_grafos(coordenadas,c_aux)
+[coordenadas,Y] = parallels(coordenadas,Y);
+mat_graf = mat_grafos(coordenadas,c_aux,Y);
+%[coordenadas,Y] = series(mat_graf,c_aux,coordenadas,Y);

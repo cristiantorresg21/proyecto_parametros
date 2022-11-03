@@ -1,5 +1,5 @@
 %THIS FUNCTION GENERATES A MATRIX TO USE GRAFOS
-function mat_graf = mat_grafos(coordenadas,c_aux)
+function mat_graf = mat_grafos(coordenadas,c_aux,Y)
 
     tamano = size(c_aux);
     tamano = tamano(1);
@@ -16,7 +16,7 @@ function mat_graf = mat_grafos(coordenadas,c_aux)
 
                     if((coordenadas(k,1)== i-1 & coordenadas(k,2)== j-1) | (coordenadas(k,1)== j-1 & coordenadas(k,2)== i-1) )
 
-                            mat_graf(i,j) = 1;
+                            mat_graf(i,j) = 1/Y(k,1);
 
                     end     
 
