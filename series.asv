@@ -1,5 +1,5 @@
 
-function [coordenadas,Y] = series(mat_graf,c_aux,coordenadas,Y)
+function [coordenadas,Y,c_aux] = series(mat_graf,c_aux,coordenadas,Y)
 
     G=graph(mat_graf);
     tamano = size(c_aux);
@@ -23,10 +23,11 @@ function [coordenadas,Y] = series(mat_graf,c_aux,coordenadas,Y)
                                     
                                 if((coordenadas(k,1)== vecinos & coordenadas(k,2)== vecinos_2(2,1) ) | (coordenadas(k,1)== vecinos_2(2,1) & coordenadas(k,2)== vecinos))
 
-                                     Y(j,1) = 1/(1/Y(j,1))+(1/Y(k,1));
+                                     Y(j,1) = 1/((1/Y(j,1))+(1/Y(k,1)));
                                      Y(k, :) =[];
-                                     coordenadas()
+                                     coordenadas(j,2) = coordenadas(k,2);
                                      coordenadas(k, :) = [];
+                                     
                                      return
 
                                 end

@@ -5,7 +5,7 @@ function s = Z_to_s_n(Z,Zo)
     tamano = size(Z);
     tamano = tamano (1,1);
     Zo_i = eye(tamano);
-    Zo_i = Zo_i*eye;
+    Zo_i = Zo*Zo_i;
     s = ((Z+Zo_i)^-1)*(Z-Zo_i);
 
 end

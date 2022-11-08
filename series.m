@@ -1,5 +1,5 @@
 
-function [coordenadas,Y] = series(mat_graf,c_aux,coordenadas,Y)
+function [coordenadas,Y,c_aux] = series(mat_graf,c_aux,coordenadas,Y)
 
     G=graph(mat_graf);
     tamano = size(c_aux);
@@ -26,7 +26,10 @@ function [coordenadas,Y] = series(mat_graf,c_aux,coordenadas,Y)
                                      Y(j,1) = 1/((1/Y(j,1))+(1/Y(k,1)));
                                      Y(k, :) =[];
                                      coordenadas(j,2) = coordenadas(k,2);
+                                     [row,colum] = find(c_aux == coordenadas(k,1));
+                                     c_aux(row,:)  = [];   
                                      coordenadas(k, :) = [];
+
                                      return
 
                                 end
