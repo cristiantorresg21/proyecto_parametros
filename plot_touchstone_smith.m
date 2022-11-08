@@ -1,8 +1,8 @@
 function plot_touchstone_db(direction)
     
     %S_50 = sparameters('1501_BRAVO_0dBm.s2p');
-    %S_50 = sparameters(direction);
-    S_50= zparameters('test.s2p');
+    S_50 = sparameters(direction);
+    %S_50= zparameters('test.s2p');
     size = S_50.NumPorts;
     aux = 1;
     for i = 1:size
