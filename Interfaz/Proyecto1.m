@@ -1,3 +1,6 @@
+
+
+
 function varargout = Proyecto1(varargin)
 % PROYECTO1 MATLAB code for Proyecto1.fig
 %      PROYECTO1, by itself, creates a new PROYECTO1 or raises the existing
