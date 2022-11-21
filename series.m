@@ -1,9 +1,10 @@
 
-function [coordenadas,Y,c_aux,nt] = series(mat_graf,c_aux,coordenadas,Y,nt)
+function [coordenadas,Y,c_aux,nt] = series(c_aux,coordenadas,Y,nt)
     
     tamano = max(c_aux)+1;
     tamano_c = size(coordenadas);
     tamano_c = tamano_c(1,1);
+    mat_graf = mat_grafos(coordenadas,c_aux,Y);
     G=graph(mat_graf);
     
       

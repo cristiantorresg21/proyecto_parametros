@@ -116,7 +116,6 @@ end
 
 
 %[coordenadas,Y] = parallels(coordenadas,Y);
-mat_graf = mat_grafos(coordenadas,c_aux,Y)
 [coordenadas,Y] = parallels(coordenadas,Y)
-[coordenadas,Y,c_aux,nt] = series(mat_graf,c_aux,coordenadas,Y,nt)
+[coordenadas,Y,c_aux,nt] = series(c_aux,coordenadas,Y,nt)
 %s = Z_to_s_n(Z,Zo)
