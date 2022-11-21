@@ -1,45 +1,96 @@
 
-function [coordenadas,Y,c_aux] = series(mat_graf,c_aux,coordenadas,Y)
-
-    G=graph(mat_graf);
-    tamano = size(c_aux);
-    tamano = tamano (1,1);
+function [coordenadas,Y,c_aux,nt] = series(mat_graf,c_aux,coordenadas,Y,nt)
     
-    for i = 1 : tamano 
-
-        vecinos = neighbors(G,i);
-        tamano_v = size(vecinos);
-        if(tamano_v(1,1) == 1)
+    tamano = max(c_aux)+1;
+    tamano_c = size(coordenadas);
+    tamano_c = tamano_c(1,1);
+    G=graph(mat_graf);
+    
+      
+   for i_in = 2 : tamano 
+   
+   pos_aux = find(c_aux == i_in-1);     
         
-            vecinos_2 = neighbors(G,vecinos);
-            tamano_v1 = size(vecinos_2);
-            if(tamano_v1(1,1) == 2)
+    if (isempty(pos_aux) == 0)
+
+        
+        i = pos_aux(1,1); 
+
+     if(nt(i,1) == 'S')
                 
-                for j = 1 : tamano-1
 
-                        if((coordenadas(j,1)== i & coordenadas(j,2)== vecinos ) | (coordenadas(j,1)== vecinos & coordenadas(j,2)== i))
+        vecinos = neighbors(G,i_in);
+        tamano_v = size(vecinos);
+        if(tamano_v(1,1) == 2)
+        
+            act = i_in-1;
+            susc = vecinos(1,1)-1;
+            pass = vecinos(2,1)-1;
+            pos_pass=0;
+            pos_susc=0;
+             for j = 1: tamano_c
+        
+                    if((coordenadas(j,1) == act && coordenadas(j,2) == susc) || (coordenadas(j,2) == act && coordenadas(j,1) == susc) )
+                
+                     pos_susc = j;
+                     break;
 
-                            for k = j+1:tamano 
-                                    
-                                if((coordenadas(k,1)== vecinos & coordenadas(k,2)== vecinos_2(2,1) ) | (coordenadas(k,1)== vecinos_2(2,1) & coordenadas(k,2)== vecinos))
+                    end
 
-                                     Y(j,1) = 1/((1/Y(j,1))+(1/Y(k,1)));
-                                     Y(k, :) =[];
-                                     coordenadas(j,2) = coordenadas(k,2);
-                                     [row,colum] = find(c_aux == coordenadas(k,1));
-                                     c_aux(row,:)  = [];   
-                                     coordenadas(k, :) = [];
+             end
+             for j = 1: tamano_c
+        
+                    if((coordenadas(j,1) == act && coordenadas(j,2) == pass) || (coordenadas(j,2) == act && coordenadas(j,1) == pass) )
+                 
+                     pos_pass = j;
+                     break;
 
-                                     return
+                    end
 
-                                end
+             end
+            
+            Y(pos_pass,1) = 1/((1/Y(pos_pass,1))+(1/Y(pos_susc,1)));
+            Y(pos_susc,:)= [];
+            aux_c_1 = 0;
+            aux_c_2 = 0;
+            if(coordenadas(pos_pass,1) ~= act)
+                
+                aux_c_1 = coordenadas(pos_pass,1) ; 
+                
+            
+            else
 
-                            end    
-         
-                        end    
-                end
+                aux_c_1 = coordenadas(pos_pass,2) ; 
+                    
+            end
+            if(coordenadas(pos_susc,1) ~= act)
+                
+                aux_c_2 = coordenadas(pos_susc,1) ; 
 
-            end 
-        end
-    end
-end
+            
+            else
+
+                aux_c_2 = coordenadas(pos_susc,2) ; 
+                    
+            end
+            coordenadas(pos_pass,1) = aux_c_1;
+            coordenadas(pos_pass,2) = aux_c_2;
+            coordenadas(pos_susc,:) = [];
+            [row_1,col_1] = find(c_aux == act);
+            c_aux(row_1,:) = [];
+            nt(row_1,:) = [];
+            break;
+        end 
+
+
+            end  
+
+    end    
+
+   end
+        
+   
+
+       
+end    
+    

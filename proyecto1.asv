@@ -1,4 +1,4 @@
-%[coordenadas,Y,c_aux,nt] = series(mat_graf,c_aux,coordenadas,Y,nt)
+[coordenadas,Y,c_aux,nt] = series(mat_graf,c_aux,coordenadas,Y,nt)
 
 clc;clear all;
 %[coordenadas,Y] = parallels(coordenadas,Y); %%function to simplify parallels
