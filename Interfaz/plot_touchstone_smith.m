@@ -5,6 +5,8 @@ function plot_touchstone_db(direction)
     %S_50= sparameters('test.s2p');
     size = S_50.NumPorts;
     aux = 1;
+   % plot_figure_smith = figure;
+    figure('name','grafica Smith');
     for i = 1:size
         
         for j = 1:size

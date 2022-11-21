@@ -291,7 +291,7 @@ function PLOT_ANGLE_Callback(hObject, eventdata, handles)
 % hObject    handle to PLOT_ANGLE (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-    address_touchstone ='1501_BRAVO_0dBm.s2p';
+
     plot_touchstone_angle(address_touchstone);
 
 
@@ -300,7 +300,7 @@ function PLOT_IMAG_Callback(hObject, eventdata, handles)
 % hObject    handle to PLOT_IMAG (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-    address_touchstone ='1501_BRAVO_0dBm.s2p';
+
     plot_touchstone_imag(address_touchstone);
 
 
@@ -310,8 +310,8 @@ function PLOT_MAG_Callback(hObject, eventdata, handles)
 % hObject    handle to PLOT_MAG (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-    address_touchstone ='1501_BRAVO_0dBm.s2p';
-    plot_touchstone_magn(address_touchstone);
+
+    plot_touchstone_mag(address_touchstone);
 
 
 % --- Executes on button press in Plot_polar.
@@ -319,7 +319,7 @@ function Plot_polar_Callback(hObject, eventdata, handles)
 % hObject    handle to Plot_polar (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-    address_touchstone ='1501_BRAVO_0dBm.s2p';
+
     plot_touchstone_polar(address_touchstone);
 
 
@@ -328,7 +328,7 @@ function Plot_Real_Callback(hObject, eventdata, handles)
 % hObject    handle to Plot_Real (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-    address_touchstone ='1501_BRAVO_0dBm.s2p';
+
     plot_touchstone_real(address_touchstone);
 
 
@@ -337,6 +337,6 @@ function plot_smith_Callback(hObject, eventdata, handles)
 % hObject    handle to plot_smith (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-    address_touchstone ='1501_BRAVO_0dBm.s2p';
+
     plot_touchstone_smith(address_touchstone);
 
