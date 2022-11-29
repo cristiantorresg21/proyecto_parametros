@@ -50,7 +50,7 @@ function [coordenadas,Y,c_aux,nt] = series(c_aux,coordenadas,Y,nt)
 
              end
             
-            Y(pos_pass,1) = 1/((1/Y(pos_pass,1))+(1/Y(pos_susc,1)));
+            Y(pos_pass,1) = (Y(pos_pass,1)*Y(pos_susc,1))/((Y(pos_pass,1)+Y(pos_susc,1)));
             Y(pos_susc,:)= [];
             aux_c_1 = 0;
             aux_c_2 = 0;

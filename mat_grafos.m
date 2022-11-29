@@ -16,7 +16,9 @@ function mat_graf = mat_grafos(coordenadas,c_aux,Y)
 
                     if((coordenadas(k,1)== i-1 && coordenadas(k,2)== j-1) || (coordenadas(k,1)== j-1 && coordenadas(k,2)== i-1) )
 
-                            mat_graf(i,j) = 1/Y(k,1);
+                            z_aux = 1/Y(k,1);
+                            aux = sqrt(real(z_aux)^2 +imag(z_aux)^2 );
+                            mat_graf(i,j) = aux;
 
                     end     
 
