@@ -2,8 +2,7 @@
 function [coordenadas,Y,c_aux,nt] = series(c_aux,coordenadas,Y,nt)
     
     tamano = max(c_aux)+1;
-    tamano_c = size(coordenadas);
-    tamano_c = tamano_c(1,1);
+    tamano_c = size(coordenadas,1);
     mat_graf = mat_grafos(coordenadas,c_aux,Y);
     G=graph(mat_graf);
     
@@ -21,8 +20,8 @@ function [coordenadas,Y,c_aux,nt] = series(c_aux,coordenadas,Y,nt)
                 
 
         vecinos = neighbors(G,i_in);
-        tamano_v = size(vecinos);
-        if(tamano_v(1,1) == 2)
+        tamano_v = size(vecinos,1);
+        if(tamano_v == 2)
         
             act = i_in-1;
             susc = vecinos(1,1)-1;

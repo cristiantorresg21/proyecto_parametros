@@ -1,8 +1,7 @@
 %THIS FUNCTION SIMPLIFIES PARALLES ON CIRCUITS
 function [coordenadas,Y] = parallels(coordenadas,Y)
        
-    tamano = size(Y);
-    tamano = tamano(1,1);
+    tamano = size(Y,1);
     i = 1;
     while i<tamano
     

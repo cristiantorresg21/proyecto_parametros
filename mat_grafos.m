@@ -3,8 +3,7 @@ function mat_graf = mat_grafos(coordenadas,c_aux,Y)
 
     tamano = max(c_aux)+1;
     tamano = tamano(1);
-    tamano_c = size(coordenadas);
-    tamano_c = tamano_c(1,1);
+    tamano_c = size(coordenadas,1);
     mat_graf = zeros(tamano,tamano);
     for i =1: tamano
         
