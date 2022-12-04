@@ -1,0 +1,14 @@
+function [coordenadas,Y,c_aux,nt] = simplify_circuits(c_aux,coordenadas,Y,nt)
+
+tamano = size(Y) 
+Y_AUX=zeros(tamano(1));
+
+    while Y ~= Y_AUX
+        
+        Y_AUX = Y;
+        [coordenadas,Y] = parallels(coordenadas,Y);
+        [coordenadas,Y,c_aux,nt] = series(c_aux,coordenadas,Y,nt);
+    
+    end    
+
+end

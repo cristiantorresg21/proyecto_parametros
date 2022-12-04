@@ -116,6 +116,7 @@ end
 
 
 %[coordenadas,Y] = parallels(coordenadas,Y);
-[coordenadas,Y] = parallels(coordenadas,Y)
-[coordenadas,Y,c_aux,nt] = series(c_aux,coordenadas,Y,nt)
+%[coordenadas,Y] = parallels(coordenadas,Y)
+%[coordenadas,Y,c_aux,nt] = series(c_aux,coordenadas,Y,nt)
 %s = Z_to_s_n(Z,Zo)
+[coordenadas,Y,c_aux,nt] = simplify_circuits(c_aux,coordenadas,Y,nt)
