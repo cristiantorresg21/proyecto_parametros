@@ -116,7 +116,15 @@ end
 
 m_aux
 
+<<<<<<< HEAD
 % %[coordenadas,Y] = parallels(coordenadas,Y);
 % [coordenadas,Y] = parallels(coordenadas,Y)
 % [coordenadas,Y,c_aux,nt] = series(c_aux,coordenadas,Y,nt)
 % %s = Z_to_s_n(Z,Zo)
+=======
+%[coordenadas,Y] = parallels(coordenadas,Y);
+%[coordenadas,Y] = parallels(coordenadas,Y)
+%[coordenadas,Y,c_aux,nt] = series(c_aux,coordenadas,Y,nt)
+%s = Z_to_s_n(Z,Zo)
+[coordenadas,Y,c_aux,nt] = simplify_circuits(c_aux,coordenadas,Y,nt)
+>>>>>>> 61494643fac1af43b23e7463fb8bbb6a98f74134
