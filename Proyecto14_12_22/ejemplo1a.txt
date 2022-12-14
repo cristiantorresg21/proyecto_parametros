@@ -1,0 +1,12 @@
+* C:\Users\Cristian\Desktop\ejemplos_LTspice\ejemplo1a.asc
+R1 V2 V1 20
+R3 V1 0 15
+L1 V2 N002 20n
+R2 N001 V1 20
+R4 N001 V2 10
+L2 N002 0 20n
+R5 N001 V1 40
+R6 N001 V1 40
+.op
+.backanno
+.end
