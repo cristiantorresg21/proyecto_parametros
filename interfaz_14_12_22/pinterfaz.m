@@ -292,8 +292,13 @@ end
 
 % --- Executes on button press in carga_archivo.
 function carga_archivo_Callback(hObject, eventdata, handles)
-netlist=handles.text_rutanetlist.String
-touchstone=handles.text_rutatouchstone.String
+    global netlist;
+    netlist =handles.text_rutanetlist.String
+    global touchstone;
+    touchstone =handles.text_rutatouchstone.String
+end
+
+
 % hObject    handle to carga_archivo (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)

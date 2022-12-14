@@ -1,4 +1,4 @@
-function [Ym,Zm] = matrizYZ(f,carpeta,netlist)
+function [Ym,Zm,np] = matrizYZ(f,carpeta,netlist)
 
 %% codgio
 [nc nn np nt nodos n_ini n_fin c_aux componentes Valores m_aux]=obtendatos(carpeta,netlist);
