@@ -3,6 +3,7 @@ clc;clear all;
 carpeta='C:\Users\a9300\OneDrive\Desktop\spice';
 netlist='ejemplo1';
 %carpeta de simulaciones de Cristian
+<<<<<<< HEAD
 %carpeta='C:\Users\Cristian\Desktop\ejemplos_LTspice';
 %netlist='ejemplo1a';
 f=logspace(1,2,200);
@@ -19,6 +20,13 @@ for i = 1: size(f,2)
     if(np == 2)
         
         YM_inv = inv(YM(:,:,i));
+=======
+carpeta='C:\Users\Cristian\Desktop\ejemplos_LTspice\ejemplo1a.net';
+%netlist='ejemplo1a';
+f=1000000
+
+[Ym,Zm] = matrizYZ(f,carpeta);
+>>>>>>> 740feb9d250a52602bc6cf49f3d684cef6199702
 
         if(YM_inv(1,1) == Inf || YM_inv(1,2) == Inf || YM_inv(2,1) == Inf || YM_inv(2,2) == Inf  )
 
