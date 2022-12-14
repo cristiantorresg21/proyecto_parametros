@@ -3,8 +3,8 @@
 clc;clear all;
 %[coordenadas,Y] = parallels(coordenadas,Y); %%function to simplify parallels
 %% obtencion de archivo
-%%filename ='C:\Users\Cristian\Desktop\ejemplos LTspice\ejemplo1.net' % route on Cristian's computer
-filename = 'C:\Users\a9300\OneDrive\Documentos\maestria\microondas 1\proyectos\simulador\ejemplos LTspice\ejemplo1.net'; %% route on Jc's computer
+filename ='C:\Users\Cristian\Desktop\ejemplos_LTspice\ejemplo1.net' % route on Cristian's computer
+%%filename = 'C:\Users\a9300\OneDrive\Documentos\maestria\microondas 1\proyectos\simulador\ejemplos LTspice\ejemplo1.net'; %% route on Jc's computer
 A = importdata(filename);
 %A = readtable(filename);
 %% obtencion de la informacion
@@ -114,8 +114,9 @@ for npx=1:1:np %recorre puertos
     end
 end
 
+m_aux
 
-%[coordenadas,Y] = parallels(coordenadas,Y);
-[coordenadas,Y] = parallels(coordenadas,Y)
-[coordenadas,Y,c_aux,nt] = series(c_aux,coordenadas,Y,nt)
-%s = Z_to_s_n(Z,Zo)
+% %[coordenadas,Y] = parallels(coordenadas,Y);
+% [coordenadas,Y] = parallels(coordenadas,Y)
+% [coordenadas,Y,c_aux,nt] = series(c_aux,coordenadas,Y,nt)
+% %s = Z_to_s_n(Z,Zo)
