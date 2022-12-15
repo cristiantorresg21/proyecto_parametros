@@ -17,10 +17,10 @@ function [Ym,Zm,np,exist] = matrizYZ(f,direccion)
             end
             Zm=Z*ones(2,2)
             Ym=zeros(2,2)
-        % else
+        else
         [np nc nn coordenadas m_aux Y Z nt]=calculaYZ(f,nc,nn,np,nt,nodos,n_ini,n_fin,c_aux,componentes,Valores,m_aux);
         nn=nn-1;
-        clearvars -except nn nc nt coordenadas Y Z m_aux c_aux np
+        clearvars -except nn nc nt coordenadas Y Z m_aux c_aux np exist
         %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         %calcula series y paralelos
         [coordenadas,Y,c_aux,nt] = simplify_circuits(c_aux,coordenadas,Y,nt)
