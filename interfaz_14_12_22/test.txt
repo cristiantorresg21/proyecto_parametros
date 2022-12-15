@@ -1,0 +1,8 @@
+*C:\Users\a9300\OneDrive\Documentos\maestr
+C1 V1 N1 10
+L2 V3 N1 15
+R3 V3 0 20
+R4 V1 0 5
+A
+B
+C

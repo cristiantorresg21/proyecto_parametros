@@ -1,28 +1,21 @@
-
-function [Ym,Zm,] = matrizYZ(f,direccion)
-
-
+clc;clear all;
+%% carpeta de simulaciones de juan
+%%carpeta='C:\Users\Cristian\Desktop\ejemplos_LTspice';
+%% carpeta de simulaciones de Cristian
+carpeta='C:\Users\Cristian\Desktop\ejemplos_LTspice';
 %% codgio
-[nc nn np nt nodos n_ini n_fin c_aux componentes Valores m_aux]=obtendatos(direccion);
+netlist='ejemplo1a';
+[nc nn np nt nodos n_ini n_fin c_aux componentes Valores m_aux]=obtendatos(carpeta,netlist);
 clearvars carpeta netlist
-if (nn==3)&(np==1)&(nc==1)
-    w=2*pi*f;
-    if componentes=='R'
-        Z=Valores;
-    elseif componentes=='L'
-        Z=Valores*w*f;
-    elseif componentes=='C'
-        Z=1/(w*f*Valores);
-    end
-    Zm=Z*ones(2,2)
-    Ym=zeros(2,2)
-% else
+f=1e9;
 [np nc nn coordenadas m_aux Y Z nt]=calculaYZ(f,nc,nn,np,nt,nodos,n_ini,n_fin,c_aux,componentes,Valores,m_aux);
 nn=nn-1;
 clearvars -except nn nc nt coordenadas Y Z m_aux c_aux np
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %calcula series y paralelos
+Y
 [coordenadas,Y,c_aux,nt] = simplify_circuits(c_aux,coordenadas,Y,nt)
+Y
 % Y,coordenadas
 % [coordenadas,Y,c_aux,nt] = series(c_aux,coordenadas,Y,nt); %no funciona :c
 % Y,coordenadas
@@ -40,19 +33,9 @@ clearvars -except nn nc nt coordenadas Y Z m_aux c_aux np
 
 aux=unique([coordenadas(:,1)',coordenadas(:,2)']);
 nn=length(aux)-1;
-dk=size(coordenadas);
-nc=dk(1,1);
-
+nc=length(coordenadas);
 m_aux=zeros(nn);
 fa=diag(ones(1,nn));
-if (nn==1)&(nc==2)&(np==1)
-    Zm=ones(2,2)/Y
-    Ym=zeros(2,2)
-else
-if (nc==1)&(np==2)
-Ym=Y*[1,-1;-1,1]
-Zm=0
-else
 [m_aux]=matriz(fa,nn,nc,coordenadas,Y,m_aux);
 matriz_nodos=m_aux;
 % Calculo de matriz Y por puerto
@@ -83,10 +66,8 @@ else
 end
 
 Ym=pY
-Zm=pY^-1
-
+if det(Ym)~=0
+    Zm=pY^-1
+else 
+    Zm=0
 end
-end
-end
-end
-

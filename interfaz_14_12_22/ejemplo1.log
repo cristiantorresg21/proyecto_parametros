@@ -1,0 +1,19 @@
+Circuit: * C:\Users\a9300\OneDrive\Documentos\maestria\microondas 1\proyectos\simulador\ejemplos LTspice\ejemplo1.asc
+
+.OP point found by inspection.
+
+Date: Thu Dec 15 13:03:07 2022
+Total elapsed time: 0.206 seconds.
+
+tnom = 27
+temp = 27
+method = trap
+totiter = 0
+traniter = 0
+tranpoints = 0
+accept = 0
+rejected = 0
+matrix size = 3
+fillins = 0
+solver = Normal
+

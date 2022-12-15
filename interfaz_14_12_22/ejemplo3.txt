@@ -1,0 +1,5 @@
+* C:\Users\a9300\OneDrive\Documentos\maestria\microondas 1\proyectos\simulador\ejemplos LTspice\ejemplo3.asc
+R1 V1 V2 10
+.op
+.backanno
+.end
