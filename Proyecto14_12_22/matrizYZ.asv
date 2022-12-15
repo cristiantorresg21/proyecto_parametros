@@ -1,7 +1,9 @@
-function [Ym,Zm] = matrizYZ(f,carpeta,netlist)
+
+function [Ym,Zm] = matrizYZ(f,direccion)
+
 
 %% codgio
-[nc nn np nt nodos n_ini n_fin c_aux componentes Valores m_aux]=obtendatos(carpeta,netlist);
+[nc nn np nt nodos n_ini n_fin c_aux componentes Valores m_aux]=obtendatos(direccion);
 clearvars carpeta netlist
 [np nc nn coordenadas m_aux Y Z nt]=calculaYZ(f,nc,nn,np,nt,nodos,n_ini,n_fin,c_aux,componentes,Valores,m_aux);
 nn=nn-1;
@@ -9,7 +11,6 @@ clearvars -except nn nc nt coordenadas Y Z m_aux c_aux np
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %calcula series y paralelos
 [coordenadas,Y,c_aux,nt] = simplify_circuits(c_aux,coordenadas,Y,nt)
-Y
 % Y,coordenadas
 % [coordenadas,Y,c_aux,nt] = series(c_aux,coordenadas,Y,nt); %no funciona :c
 % Y,coordenadas
@@ -60,10 +61,8 @@ else
 end
 
 Ym=pY
-if det(Ym)~=0
-    Zm=pY^-1
-else 
-    Zm=0
+Zm=pY^-1
+
 end
 end
 

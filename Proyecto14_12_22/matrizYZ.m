@@ -1,12 +1,22 @@
-<<<<<<< HEAD
-function [Ym,Zm,np] = matrizYZ(f,carpeta,netlist)
-=======
+
 function [Ym,Zm] = matrizYZ(f,direccion)
->>>>>>> 740feb9d250a52602bc6cf49f3d684cef6199702
+
 
 %% codgio
 [nc nn np nt nodos n_ini n_fin c_aux componentes Valores m_aux]=obtendatos(direccion);
 clearvars carpeta netlist
+if (nn==3)&(np==1)&(nc==1)
+    w=2*pi*f;
+    if componentes=='R'
+        Z=Valores;
+    elseif componentes=='L'
+        Z=Valores*w*f;
+    elseif componentes=='C'
+        Z=1/(w*f*Valores);
+    end
+    Zm=Z*ones(2,2)
+    Ym=zeros(2,2)
+% else
 [np nc nn coordenadas m_aux Y Z nt]=calculaYZ(f,nc,nn,np,nt,nodos,n_ini,n_fin,c_aux,componentes,Valores,m_aux);
 nn=nn-1;
 clearvars -except nn nc nt coordenadas Y Z m_aux c_aux np
@@ -30,9 +40,19 @@ clearvars -except nn nc nt coordenadas Y Z m_aux c_aux np
 
 aux=unique([coordenadas(:,1)',coordenadas(:,2)']);
 nn=length(aux)-1;
-nc=length(coordenadas);
+dk=size(coordenadas);
+nc=dk(1,1);
+
 m_aux=zeros(nn);
 fa=diag(ones(1,nn));
+if (nn==1)&(nc==2)&(np==1)
+    Zm=ones(2,2)/Y
+    Ym=zeros(2,2)
+else
+if (nc==1)&(np==2)
+Ym=Y*[1,-1;-1,1]
+Zm=0
+else
 [m_aux]=matriz(fa,nn,nc,coordenadas,Y,m_aux);
 matriz_nodos=m_aux;
 % Calculo de matriz Y por puerto
@@ -63,10 +83,10 @@ else
 end
 
 Ym=pY
-if det(Ym)~=0
-    Zm=pY^-1
-else 
-    Zm=0
+Zm=pY^-1
+
+end
+end
 end
 end
 

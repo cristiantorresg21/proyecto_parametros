@@ -296,7 +296,7 @@ function carga_archivo_Callback(hObject, eventdata, handles)
     netlist =handles.text_rutanetlist.String
     global touchstone;
     touchstone =handles.text_rutatouchstone.String
-end
+% end
 
 
 % hObject    handle to carga_archivo (see GCBO)
