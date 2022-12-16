@@ -5,7 +5,6 @@ function [nc nn np nt nodos n_ini n_fin c_aux componentes Valores m_aux]=obtenda
 filename=direccion;
 idx = strfind(direccion,"\")
 fdx = strfind(direccion,".net")
-%fdx = strfind(direccion,".")
 
 netlist = extractBetween(direccion,idx(length(idx))+1,strlength(direccion)-4)
 netlist=char(netlist)
@@ -22,14 +21,16 @@ tabla_datos=readcell(archivo);
 lim_1=length(tabla_datos);
 nc=lim_1-4;
 tabla_datos=tabla_datos(2:nc+1,:);
+%{
 if lim_1==5
    tabla_datos=strsplit(char(tabla_datos)); 
-end 
+end
+%}
 componentes=char(tabla_datos(:,1));
 n_ini=tabla_datos(:,2);
 n_fin=tabla_datos(:,3);
 try % toma los valores de la tabla como numeros o como char
-    %valores_aux=char(tabla_datos(:,4));
+    valores_aux=char(tabla_datos(:,4));
     valores_aux=cell2mat(tabla_datos(:,4));
     Valores=valores_aux;
 catch
