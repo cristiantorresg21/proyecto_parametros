@@ -1,0 +1,20 @@
+* C:\Users\a9300\OneDrive\Documentos\maestria\microondas 1\proyectos\simulador 1\proyecto_parametros\ejemplos LTspice\ejemplos version_2\ejemplo 4.asc
+R1 N007 N001 31k
+R2 N007 N005 29k
+R3 N008 N004 5k
+R4 N006 0 11k
+R5 V2 N003 17k
+C1 0 N007 23n
+C2 N005 N001 37n
+C3 N002 V2 1n
+C4 N008 N002 2n
+L1 N001 V2 41p
+L2 N004 V2 3p
+L3 N003 N006 13p
+L4 V2 0 7p
+C5 0 N008 53n
+R6 0 V2 49K
+L5 N001 V2 47p
+.op
+.backanno
+.end

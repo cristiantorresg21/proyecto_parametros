@@ -1,0 +1,4 @@
+Circuit: * C:\Users\a9300\OneDrive\Documentos\maestria\microondas 1\proyectos\simulador 1\proyecto_parametros\ejemplos LTspice\ejemplos version_2\ejemplo 3.asc
+
+Fatal Error: This circuit does not have a conduction path to ground!
+   Please flag a node as ground.

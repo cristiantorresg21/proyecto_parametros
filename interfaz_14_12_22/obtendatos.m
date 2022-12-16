@@ -2,7 +2,7 @@
 
 function [nc nn np nt nodos n_ini n_fin c_aux componentes Valores m_aux]=obtendatos(direccion)
 %% obtencion de la informacion
-%direccion = 'C:\Users\a9300\OneDrive\Desktop\spice\ejemplo_1.net';
+%direccion = 'C:\Users\a9300\OneDrive\Desktop\spice\ejemplo_3.net';
 filename=direccion;
 idx = strfind(direccion,"\")
 fdx = strfind(direccion,".net")
