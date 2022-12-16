@@ -1,6 +1,8 @@
 
 function [Ym,Zm,np,exist] = matrizYZ(f,direccion)    
     %% codgio
+         f = 1000;
+    direccion = 'C:\Users\a9300\OneDrive\Desktop\spice\ejemplo1.net';
     [nc nn np nt nodos n_ini n_fin c_aux componentes Valores m_aux]=obtendatos(direccion);
     clearvars carpeta netlist
     exist = 'true';
@@ -52,7 +54,7 @@ function [Ym,Zm,np,exist] = matrizYZ(f,direccion)
             end
         end
         if ns==0
-            py=matriz_nodos;
+            pY=matriz_nodos;
         elseif ns==1;   
             ma=diag(ones(1,np));    
             h=matriz_nodos(nn,1:2)/(-matriz_nodos(nn,nn));

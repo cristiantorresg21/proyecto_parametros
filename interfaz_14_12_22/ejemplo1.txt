@@ -1,14 +1,8 @@
-* C:\Users\Cristian\Desktop\ejemplos_LTspice\ejemplo1.asc
-R1 N003 V1 50
-R3 V1 0 50
-R2 N003 0 50
-R4 N004 N003 50
-R5 N004 0 50
-R6 N005 N004 50
-R7 N005 0 50
-R8 N001 N005 50
-R9 N001 0 50
-R10 V2 N001 50
+* C:\Users\a9300\OneDrive\Documentos\maestria\microondas 1\proyectos\simulador\ejemplos LTspice\ejemplo1.asc
+R1 V1 0 1k
+R2 V2 0 4k
+R3 V2 N001 3k
+R4 N001 V1 2k
 .op
 .backanno
 .end

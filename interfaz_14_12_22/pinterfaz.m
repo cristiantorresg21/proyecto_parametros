@@ -493,6 +493,8 @@ function sim_start_Callback(hObject, eventdata, handles)
     s = [];
     ABCD = [];
     T= [];
+    %freq = 1000;
+    %netlist = 'C:\Users\a9300\OneDrive\Desktop\spice\ejemplo1.net';
     for i = 1: size(freq,2)
     
         [Ym(:,:,i),Zm(:,:,i),np,exist] = matrizYZ(freq(1,i),netlist);
