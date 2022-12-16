@@ -1,11 +1,9 @@
 
-function [Ym,Zm,np,exist] = matrizYZ(f,direccion)
-
-    
+function [Ym,Zm,np,exist] = matrizYZ(f,direccion)    
     %% codgio
     [nc nn np nt nodos n_ini n_fin c_aux componentes Valores m_aux]=obtendatos(direccion);
     clearvars carpeta netlist
-    exist = true;
+    exist = 'true';
     if (nn==3)&(np==1)&(nc==1)
             w=2*pi*f;
             if componentes=='R'
@@ -17,24 +15,13 @@ function [Ym,Zm,np,exist] = matrizYZ(f,direccion)
             end
             Zm=Z*ones(2,2)
             Ym=zeros(2,2)
-        else
+     else
         [np nc nn coordenadas m_aux Y Z nt]=calculaYZ(f,nc,nn,np,nt,nodos,n_ini,n_fin,c_aux,componentes,Valores,m_aux);
         nn=nn-1;
         clearvars -except nn nc nt coordenadas Y Z m_aux c_aux np exist
         %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         %calcula series y paralelos
         [coordenadas,Y,c_aux,nt] = simplify_circuits(c_aux,coordenadas,Y,nt)
-        % Y,coordenadas
-        % [coordenadas,Y,c_aux,nt] = series(c_aux,coordenadas,Y,nt); %no funciona :c
-        % Y,coordenadas
-        % [coordenadas,Y,c_aux,nt] = series(c_aux,coordenadas,Y,nt);
-        % Y
-        % [coordenadas,Y] = parallels(coordenadas,Y);
-        % Y
-        % [coordenadas,Y,c_aux,nt] = series(c_aux,coordenadas,Y,nt);
-        % Y
-        % coordenadas
-        %falta nt :c
         
         %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         %% Calculo de matriz YZ por nodo
@@ -53,7 +40,7 @@ function [Ym,Zm,np,exist] = matrizYZ(f,direccion)
         if (nc==1)&(np==2)
             Ym=Y*[1,-1;-1,1]
             Zm=0
-            exist =  false;
+            exist =  'false';
         else
         [m_aux]=matriz(fa,nn,nc,coordenadas,Y,m_aux);
         matriz_nodos=m_aux;
@@ -64,24 +51,41 @@ function [Ym,Zm,np,exist] = matrizYZ(f,direccion)
             ns=ns+1;
             end
         end
-        if ns==0 
-            pY=matriz_nodos;
+        if ns==0
+            py=matriz_nodos;
         elseif ns==1;   
             ma=diag(ones(1,np));    
             h=matriz_nodos(nn,1:2)/(-matriz_nodos(nn,nn));
             fa=[ma; h];
             m_aux=zeros(np);
-            [pY]=matriz(fa,np,nc,coordenadas,Y,m_aux);
+            [pY]=matriz(fa,np,nc,coordenadas,Y,m_aux);    
         else
-            ma=diag(ones(1,np));
-            %ns=nn-np
-            haux=matriz_nodos(ns+1:nn,:);
-            haux(:,ns+1:nn)=-haux(:,ns+1:nn);
-            [haux]=escalonar(haux,ns);
-            h=haux(:,ns+1:nn);
-            fa=[ma; h];
-            m_aux=zeros(np);
-            [pY]=matriz(fa,np,nc,coordenadas,Y,m_aux);
+     A=m_aux(1:np,1:np)
+     B=m_aux(1:np,np+1:nn)
+     C=m_aux(np+1:nn,1:np)
+     D=m_aux(np+1:nn,np+1:nn)
+        pY=A+((B').*((D')^-1).*((-C)'))'
+        end
+%         if ns==0 
+%             pY=matriz_nodos;
+%         elseif ns==1;   
+%             ma=diag(ones(1,np));    
+%             h=matriz_nodos(nn,1:2)/(-matriz_nodos(nn,nn));
+%             fa=[ma; h];
+%             m_aux=zeros(np);
+%             [pY]=matriz(fa,np,nc,coordenadas,Y,m_aux);
+%         else
+%             ma=diag(ones(1,np));
+%             %ns=nn-np
+%             haux=matriz_nodos(ns+1:nn,:);
+% %             haux(:,ns+1:nn)=-haux(:,ns+1:nn);
+%             haux(:,1:np)=-haux(:,1:np);              %nuevo
+%             haux=[haux(:,np+1:nn),haux(:,1:np)]      %nuevo
+%             [haux]=escalonar(haux,ns);
+%             h=haux(:,ns+1:nn);
+%             fa=[ma; h];
+%             m_aux=zeros(np);
+%             [pY]=matriz(fa,np,nc,coordenadas,Y,m_aux);
         end
         
         Ym=pY
@@ -90,5 +94,5 @@ function [Ym,Zm,np,exist] = matrizYZ(f,direccion)
         end
         end
     end
-end
+% end
 
