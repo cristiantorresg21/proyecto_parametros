@@ -64,7 +64,8 @@ function [Ym,Zm,np,exist] = matrizYZ(f,direccion)
      B=m_aux(1:np,np+1:nn)
      C=m_aux(np+1:nn,1:np)
      D=m_aux(np+1:nn,np+1:nn)
-        pY=A+((B').*((D')^-1).*((-C)'))'
+%         pY=A+((B')*((D')^-1).*((-C)'))'
+      pY=A+((B)*((D)^-1)*((-C)))
         end
 %         if ns==0 
 %             pY=matriz_nodos;
